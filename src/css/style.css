@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+
+.studentPicture{
+  width: 10%;
+  height: 50%;
+}
+
+.fullName{
+  font-weight: bold;
+}
+
+.fullName,.field {
+  font-family: 'Raleway', sans-serif;
+  list-style-type: none;
+}
