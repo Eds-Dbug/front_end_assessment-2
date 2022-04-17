@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
 
-.studentPicture{
-  width: 25%;
-  height: 50%;
+.studentItem{
+  max-width: 50%;
 }
+
+
 
 .fullName{
   font-weight: bold;
@@ -13,3 +14,14 @@
   font-family: 'Raleway', sans-serif;
   list-style-type: none;
 }
+
+.toggle{
+  font-family: 'Raleway', sans-serif;
+  font-size: 70px;
+  font-weight: medium;
+  color: gray;
+  height: 0px;
+  background-color: white;
+  border:none;
+}
+

@@ -25,7 +25,9 @@ export const StudentStore = (props) => {
 		setStudent(response.data.students);
 	};
 
-	return <Context.Provider value={student}>{props.children}</Context.Provider>;
+	return (
+		<Context.Provider value={{ student }}>{props.children}</Context.Provider>
+	);
 };
 
 export default Context;

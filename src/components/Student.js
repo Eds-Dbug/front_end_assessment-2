@@ -44,7 +44,7 @@ const Student = () => {
 		<SearchContex.Consumer>
 			{(term) => (
 				<StudentContex.Consumer>
-					{(value) => renderList(value, term)}
+					{({ student }) => renderList(student, term)}
 				</StudentContex.Consumer>
 			)}
 		</SearchContex.Consumer>
