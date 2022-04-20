@@ -1,26 +1,25 @@
 import React from 'react';
 import SearchContext from '../context/SearchContext';
 
-const SearchBar = () => {
+export const StudentSearchBar = () => {
 	const renderSearchBar = (term) => {
+		const { searchTerm, onChangeSearchTerm } = term;
 		//console.log(term);
 		return (
 			<input
 				type="text"
-				placeholder=""
+				placeholder="search for student name"
 				onChange={(event) => {
-					term.onChangeSearchTerm(event.target.value);
+					onChangeSearchTerm(event.target.value);
 				}}
-				value={term.searchTerm}
+				value={searchTerm}
 			/>
 		);
 	};
 
 	return (
 		<SearchContext.Consumer>
-			{(term) => renderSearchBar(term)}
+			{(value) => renderSearchBar(value)}
 		</SearchContext.Consumer>
 	);
 };
-
-export default SearchBar;

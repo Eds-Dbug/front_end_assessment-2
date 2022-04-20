@@ -4,7 +4,7 @@ import Student from './Student';
 
 const StudentList = () => {
 	return (
-		<div>
+		<div className="studentList">
 			<Student />
 		</div>
 	);

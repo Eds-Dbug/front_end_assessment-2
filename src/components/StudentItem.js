@@ -1,12 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import StudentAverage from './StudentAverage';
 import '../css/style.css';
 import TestScores from './TestScores';
-import Collapsible from './Collapsible';
-import StudentContex from '../context/StudentContex';
+import { TagsInput } from './TagsInput';
 
-const StudentItem = ({ studentInfo }) => {
+const StudentItem = ({ studentInfo, searchTagTerm }) => {
 	const [showResults, setShowResults] = useState(false);
+	const [tagData, setTagData] = useState([]);
+
+	const lower = (data) => {
+		let toLower = data.map((element) => {
+			console.log(element);
+			return element.toLowerCase();
+		});
+		setTagData(toLower);
+	};
+	//HAVE TO LOWER CASE EVERYTHING and we good i think
+	const checkTags = (data, ID) => {
+		//console.log(typeof data);
+		//console.log(`TagData: ${tagData} ID: ${ID}`);
+		setTagData(data);
+		lower(tagData);
+		console.log(tagData);
+	};
+
+	//console.log(studentInfo);
 
 	const toggle = () => {
 		//console.log('ONCLICK WORKS' + 'showResults:' + showResults);
@@ -18,6 +36,7 @@ const StudentItem = ({ studentInfo }) => {
 
 	return (
 		<div className="studentItem d-flex  border border-1">
+			{tagData.includes(searchTagTerm.toLowerCase()) ? <p>NAAAAAYYY</p> : null}
 			<img
 				className="studentPicture mt-3 border border-1 rounded-circle "
 				src={studentInfo.pic}
@@ -25,7 +44,6 @@ const StudentItem = ({ studentInfo }) => {
 				width="125"
 				height="125"
 			/>
-
 			<div className="studentInformation ms-5">
 				<h1 className="fullName">{`${studentInfo.firstName.toUpperCase()} ${studentInfo.lastName.toUpperCase()}`}</h1>
 				<div className="fieldSection ">
@@ -37,6 +55,8 @@ const StudentItem = ({ studentInfo }) => {
 						<br />
 						{showResults ? <TestScores grades={studentInfo.grades} /> : null}
 					</ul>
+
+					<TagsInput checkTags={checkTags} />
 				</div>
 			</div>
 

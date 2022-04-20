@@ -3,13 +3,15 @@ import StudentList from './StudentList';
 import '../css/style.css';
 import { StudentStore } from '../context/StudentContex';
 import { SearchStore } from '../context/SearchContext';
-import SearchBar from './SearchBar';
+import { StudentSearchBar } from './StudentSearchBar';
+import { TagSearchBar } from './TagSearchBar';
 
 const App = () => {
 	return (
 		<div>
 			<SearchStore>
-				<SearchBar />
+				<StudentSearchBar />
+				<TagSearchBar />
 				<StudentStore>
 					<StudentList className="StudentList" />
 				</StudentStore>
