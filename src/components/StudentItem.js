@@ -18,6 +18,8 @@ const StudentItem = ({ studentInfo, searchTagTerm }) => {
 		return result;
 	}
 
+	const getTags = () => {};
+
 	/**
 	 *
 	 * function for filterring the tag name
