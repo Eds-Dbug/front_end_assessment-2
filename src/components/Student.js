@@ -10,12 +10,14 @@ import SearchContex from '../context/SearchContext';
  */
 const Student = (term) => {
 	const [showTag, setShowTag] = useState(true);
+	// const [tagData, setTagData] = useState(['']);
 
-	// useEffect(() => {
-	// 	if ((searchTagTerm = 'd')) {
-	// 		setShowTag(false);
-	// 	}
-	// }, [searchTagTerm]);
+	// const checkTags = (data, ID) => {
+	// 	//console.log(typeof data);
+	// 	//console.log(`TagData: ${tagData} ID: ${ID}`);
+	// 	console.log(data);
+	// 	setTagData(data);
+	// };
 
 	const tagFilter = () => {
 		//console.log('ONCLICK WORKS' + 'showResults:' + showResults);
@@ -60,12 +62,10 @@ const Student = (term) => {
 
 				return (
 					<div>
-						{showTag ? (
-							<StudentItem
-								studentInfo={studentInfo}
-								searchTagTerm={searchTagTerm}
-							/>
-						) : null}
+						<StudentItem
+							studentInfo={studentInfo}
+							searchTagTerm={searchTagTerm}
+						/>
 					</div>
 				);
 			});

@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import SearchContext from '../context/SearchContext';
 import '../css/style.css';
 
-export const TagsInput = ({ checkTags }) => {
+export const TagsInput = ({ checkTags, tagData }) => {
 	function makeid(length) {
 		var result = '';
 		var characters =
@@ -19,6 +19,13 @@ export const TagsInput = ({ checkTags }) => {
 	const [ID, setID] = useState(makeid(5));
 
 	const [tags, setTags] = useState([]);
+	const prevTags = useRef([]);
+
+	useEffect(() => {
+		prevTags.current = tags;
+		checkTags(prevTags.current, ID);
+		//console.log(this.props);
+	}, [tags]);
 
 	// const checkTags1 = () => {
 	// 	return checkTags(tags);
@@ -34,11 +41,6 @@ export const TagsInput = ({ checkTags }) => {
 		event.target.value = '';
 	};
 
-	useEffect(() => {
-		checkTags(tags, ID);
-		//console.log(this.props);
-	}, [tags]);
-
 	const removeTag = (index) => {
 		setTags(tags.filter((item, i) => index !== i));
 	};
@@ -46,7 +48,7 @@ export const TagsInput = ({ checkTags }) => {
 	const renderTag = (searchtagTerm) => {
 		return (
 			<div className="d-flex justify-content-center align-content-center">
-				<p>Unique ID: {ID}</p>
+				{/* <p>Unique ID: {console.log(`Tags: ${tags} , ID: ${ID}`)}</p> */}
 				<div className="tags-input-container border border-2">
 					{tags.map((tag, index) => (
 						<div className="tag-item" key={index}>
