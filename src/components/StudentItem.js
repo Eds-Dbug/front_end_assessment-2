@@ -14,6 +14,7 @@ const StudentItem = ({ studentInfo, searchTagTerm }) => {
 
 	return (
 		<div>
+			{//TESTING THE BRANCH}
 			{console.log(toggle(tagData, searchTagTerm))}
 			{tagData.includes(searchTagTerm) ? (
 				<TagItem studentInfo={studentInfo} checkTags={checkTags} />
