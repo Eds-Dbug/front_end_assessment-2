@@ -18,6 +18,14 @@ const StudentItem = ({ studentInfo, searchTagTerm }) => {
 		return result;
 	}
 
+	/**
+	 *
+	 * function for filterring the tag name
+	 */
+	const tagFilter = () => {
+		return tags.toString();
+	};
+
 	const toggle = () => {
 		//console.log('ONCLICK WORKS' + 'showResults:' + showResults);
 		if (showResults) {
@@ -40,7 +48,8 @@ const StudentItem = ({ studentInfo, searchTagTerm }) => {
 
 	return (
 		<div>
-			{tags.includes(searchTagTerm) || !searchTagTerm ? (
+			{console.log(tagFilter())}
+			{tags.toString().includes(searchTagTerm) || !searchTagTerm ? (
 				<div className="studentItem d-flex  border border-1">
 					<img
 						className="studentPicture mt-3 border border-1 rounded-circle "
