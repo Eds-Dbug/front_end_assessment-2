@@ -3,7 +3,7 @@ import StudentAverage from './StudentAverage';
 import TestScores from './TestScores';
 import { TagsInput } from './TagsInput';
 
-export const TagItem = ({ studentInfo, checkTags }) => {
+export const TagItem = ({ studentInfo }) => {
 	const [showResults, setShowResults] = useState(false);
 	const toggle = () => {
 		//console.log('ONCLICK WORKS' + 'showResults:' + showResults);
@@ -34,7 +34,7 @@ export const TagItem = ({ studentInfo, checkTags }) => {
 						{showResults ? <TestScores grades={studentInfo.grades} /> : null}
 					</ul>
 
-					<TagsInput checkTags={checkTags} />
+					<TagsInput />
 				</div>
 			</div>
 

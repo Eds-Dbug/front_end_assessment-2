@@ -3,29 +3,14 @@ import TestScores from './TestScores';
 import StudentItem from './StudentItem';
 import StudentContex from '../context/StudentContex';
 import SearchContex from '../context/SearchContext';
-
+import { TagStore } from '../context/TagContext';
 /**
  *
  * @returns A Student element consisting of image, firstName, lastName, email, company, skill and  grades of the student
  */
-const Student = (term) => {
+const Student1 = (term) => {
 	const [showTag, setShowTag] = useState(true);
 	// const [tagData, setTagData] = useState(['']);
-
-	// const checkTags = (data, ID) => {
-	// 	//console.log(typeof data);
-	// 	//console.log(`TagData: ${tagData} ID: ${ID}`);
-	// 	console.log(data);
-	// 	setTagData(data);
-	// };
-
-	const tagFilter = () => {
-		//console.log('ONCLICK WORKS' + 'showResults:' + showResults);
-		if (showTag) {
-			return setShowTag(false);
-		}
-		setShowTag(true);
-	};
 
 	/**
 	 *
@@ -62,10 +47,12 @@ const Student = (term) => {
 
 				return (
 					<div>
-						<StudentItem
-							studentInfo={studentInfo}
-							searchTagTerm={searchTagTerm}
-						/>
+						<TagStore>
+							<StudentItem
+								studentInfo={studentInfo}
+								searchTagTerm={searchTagTerm}
+							/>
+						</TagStore>
 					</div>
 				);
 			});
@@ -82,4 +69,4 @@ const Student = (term) => {
 	);
 };
 
-export default Student;
+export default Student1;
