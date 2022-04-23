@@ -10,8 +10,11 @@ const App = () => {
 	return (
 		<div>
 			<SearchStore>
-				<StudentSearchBar />
-				<TagSearchBar />
+				<div>
+					<StudentSearchBar className="searchBar" />
+					<TagSearchBar className="searchBar" />
+				</div>
+
 				<StudentStore>
 					<StudentList className="StudentList" />
 				</StudentStore>

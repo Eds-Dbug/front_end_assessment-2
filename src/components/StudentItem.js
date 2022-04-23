@@ -3,21 +3,20 @@ import TagContext from '../context/TagContext';
 import '../css/style.css';
 import { TagItem } from './TagItem';
 
-const StudentItem = ({ studentInfo, searchTagTerm }) => {
-	//const [tagData, setTagData] = useState(['']);
-
-	//HAVE TO LOWER CASE EVERYTHING and we good i think
-	//tagData.includes(searchTagTerm) || !searchTagTerm
-	// const checkTags = (data, ID) => {
-	// 	setTagData(tagData.concat(data));
-	// 	//	console.log(`'tagdata: ${tagData} ID: ${ID}`);
-	// };
+const StudentItem = ({ studentInfo, searchTerm, searchTagTerm }) => {
 	const renderList = (value) => {
 		return (
 			<div>
 				{/* {console.log(toggle(tagData, searchTagTerm))} */}
-				{console.log(value)}
-				{value.tags.toString().includes(searchTagTerm) || !searchTagTerm ? (
+				{console.log(studentInfo.firstName)}
+				{(value.tags.toString().includes(searchTagTerm) || !searchTagTerm) &&
+				(studentInfo.firstName
+					.toLowerCase()
+					.includes(searchTerm.toLowerCase()) ||
+					studentInfo.lastName
+						.toLowerCase()
+						.includes(searchTerm.toLowerCase()) ||
+					!searchTerm) ? (
 					<TagItem studentInfo={studentInfo} />
 				) : null}
 			</div>

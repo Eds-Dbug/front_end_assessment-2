@@ -18,16 +18,15 @@ const StudentList = (term) => {
 	const renderList = (value, { searchTerm, searchTagTerm }) => {
 		//console.log(document.getElementsByClassName('field'));
 		//console.log(searchTagTerm);
-
-		return value
-			.filter((val) => {
-				return (
-					val.firstName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-					val.lastName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-					!searchTerm
-				);
-			})
-			.map(({ pic, firstName, lastName, email, company, skill, grades }) => {
+		// .filter((val) => {
+		// 	return (
+		// 		val.firstName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+		// 		val.lastName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+		// 		!searchTerm
+		// 	);
+		// })
+		return value.map(
+			({ pic, firstName, lastName, email, company, skill, grades }) => {
 				const studentInfo = {
 					pic,
 					firstName,
@@ -37,21 +36,20 @@ const StudentList = (term) => {
 					skill,
 					grades,
 				};
-				//console.log(studentInfo);
-				// i can set null for student item if its not right
-				// need to try and get student object
 
 				return (
 					<div>
 						<TagStore>
 							<StudentItem
 								studentInfo={studentInfo}
+								searchTerm={searchTerm}
 								searchTagTerm={searchTagTerm}
 							/>
 						</TagStore>
 					</div>
 				);
-			});
+			}
+		);
 	};
 
 	return (

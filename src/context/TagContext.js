@@ -6,7 +6,7 @@ export const TagStore = (props) => {
 	const [tags, setTags] = useState([]);
 
 	const onChangeSetTags = (data) => {
-		setTags([...tags, data]);
+		setTags(data);
 	};
 
 	return (

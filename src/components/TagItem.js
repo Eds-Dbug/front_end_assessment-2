@@ -30,11 +30,9 @@ export const TagItem = ({ studentInfo }) => {
 						<li className="field">{`Company: ${studentInfo.company}`}</li>
 						<li className="field">{`Skill: ${studentInfo.skill}`}</li>
 						<StudentAverage grades={studentInfo.grades} />
-						<br />
 						{showResults ? <TestScores grades={studentInfo.grades} /> : null}
+						<TagsInput />
 					</ul>
-
-					<TagsInput />
 				</div>
 			</div>
 
