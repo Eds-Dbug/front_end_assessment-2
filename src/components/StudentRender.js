@@ -3,7 +3,12 @@ import StudentAverage from './StudentAverage';
 import TestScores from './TestScores';
 import { TagsInput } from './TagsInput';
 
-export const TagItem = ({ studentInfo }) => {
+/**
+ *
+ * @param {Object} studentInfo - Information about a student
+ * @returns A rendering of a student
+ */
+export const StudentRender = ({ studentInfo }) => {
 	const [showResults, setShowResults] = useState(false);
 	const toggle = () => {
 		//console.log('ONCLICK WORKS' + 'showResults:' + showResults);
@@ -36,7 +41,7 @@ export const TagItem = ({ studentInfo }) => {
 				</div>
 			</div>
 
-			<button className="toggle ms-auto" onClick={toggle}>
+			<button className="toggle ms-auto border-0 bg-white" onClick={toggle}>
 				{showResults ? '-' : '+'}
 			</button>
 		</div>

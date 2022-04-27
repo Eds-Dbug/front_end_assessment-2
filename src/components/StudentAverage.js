@@ -1,8 +1,6 @@
 import React from 'react';
-import StudentContex from '../context/StudentContex';
 
 const StudentAverage = ({ grades }) => {
-	//console.log(grades);
 	/**
 	 *
 	 * @param {array} grades

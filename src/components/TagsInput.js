@@ -1,19 +1,17 @@
 import React, { useState, useEffect, useRef } from 'react';
 import TagContext from '../context/TagContext';
-import '../css/tagStyle.css';
+import '../css/style.css';
 
-export const TagsInput = ({ checkTags }) => {
-	// function makeid(length) {
-	// 	var result = '';
-	// 	var characters =
-	// 		'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-	// 	var charactersLength = characters.length;
-	// 	for (var i = 0; i < length; i++) {
-	// 		result += characters.charAt(Math.floor(Math.random() * charactersLength));
-	// 	}
-	// 	return result;
-	// }
-
+/**
+ * @returns A form for tags to be added.
+ */
+export const TagsInput = () => {
+	/**
+	 *
+	 * @param {Array} tags - An array (state) of all the stored tags.
+	 * @param {Function} onChangeSetTags - A function that sets the state of the tags array.
+	 * @returns A tag
+	 */
 	const addTag = (tags, onChangeSetTags) => {
 		return (event) => {
 			if (event.key !== 'Enter') return;
@@ -24,21 +22,33 @@ export const TagsInput = ({ checkTags }) => {
 		};
 	};
 
+	// /**
+	//  *
+	//  * @param {Array} tags - An array (state) of all the stored tags.
+	//  * @param {Function} onChangeSetTags - A function that sets the state of the tags array.
+	//  * @param {Number} index - The index of the individual tag to be removed.
+	//  */
 	// const removeTag = (tags, onChangeSetTags, index) => {
 	// 	onChangeSetTags(tags.filter((item, i) => index !== i));
 	// };
 
-	const renderTag = (value) => {
+	/**
+	 *
+	 * @param {Object} tagInfo - the information on the individual tag.
+	 * @param {Array} tags - An array (state) of all the stored tags.
+	 * @returns A rendered form of tags.
+	 */
+	const renderTag = (tagInfo) => {
 		return (
 			<div className="d-flex flex-column ">
-				<div className="tags-input-container d-flex flex-row ">
-					{value.tags.map((tag, index) => (
-						<div className="tag-item" key={index}>
+				<div className="tags-input-container d-flex flex-row w-50 mt-2 mb-1">
+					{tagInfo.tags.map((tag, index) => (
+						<div className="tag-item rounded p-2 m-1" key={index}>
 							<span className=" tag-item-text">{tag}</span>
 							{/* <span
 								className="text"
 								onClick={() =>
-									removeTag(value.tags, value.onChangeSetTags, index)
+									removeTag(tagInfo.tags, tagInfo.onChangeSetTags, index)
 								}
 							>
 								&times;
@@ -47,8 +57,8 @@ export const TagsInput = ({ checkTags }) => {
 					))}
 				</div>
 				<input
-					className="tags-input"
-					onKeyDown={addTag(value.tags, value.onChangeSetTags)}
+					className="tags-input "
+					onKeyDown={addTag(tagInfo.tags, tagInfo.onChangeSetTags)}
 					type="text"
 					placeholder="Add a tag"
 				/>
@@ -56,10 +66,7 @@ export const TagsInput = ({ checkTags }) => {
 		);
 	};
 
-	// return (
-	//tags.filter((item)=> item.toLowerCase().includes(searchTerm.toLowerCase()))
-	// );
 	return (
-		<TagContext.Consumer>{(value) => renderTag(value)}</TagContext.Consumer>
+		<TagContext.Consumer>{(tagInfo) => renderTag(tagInfo)}</TagContext.Consumer>
 	);
 };

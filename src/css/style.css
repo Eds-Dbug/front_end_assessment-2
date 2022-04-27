@@ -18,8 +18,32 @@
   font-weight: medium;
   color: gray;
   height: 0px;
-  background-color: white;
+}
+
+.searchBar{
+  outline: none;
+}
+
+.tags-input{
   border:none;
+  border-bottom: 2px solid #dee2e6; 
+  width: 175px;
+  outline: none; 
+}
+
+.tag-item{
+  background-color: #dee2e6;
+}
+
+.tag-item .close{
+  display:inline;
+  border-radius: 50%;
+  color:white;
+  background-color: black;
+  height: 20px;
+  width: 20px;
+  margin-left:.5em ;
+  font-size:18px;
 }
 
 

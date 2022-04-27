@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 
 const Context = React.createContext('');
 
+/**
+ * Stores information relevant to searches
+ */
 export const SearchStore = (props) => {
-	const [searchTerm, setSearchTerm] = useState('');
+	const [nameSearchTerm, setSearchTerm] = useState('');
 	const [searchTagTerm, setSearchTagTerm] = useState('');
 
-	const onChangeSearchTerm = (searchTerm) => {
-		setSearchTerm(searchTerm);
+	const onChangeSearchTerm = (nameSearchTerm) => {
+		setSearchTerm(nameSearchTerm);
 	};
 
 	const onChangeSearchtagTerm = (searchTagTerm) => {
@@ -17,7 +20,7 @@ export const SearchStore = (props) => {
 	return (
 		<Context.Provider
 			value={{
-				searchTerm,
+				nameSearchTerm,
 				onChangeSearchTerm,
 				searchTagTerm,
 				onChangeSearchtagTerm,
