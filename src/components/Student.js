@@ -1,4 +1,3 @@
-import React, { useState, useEffect, useRef } from 'react';
 import TagContext from '../context/TagContext';
 import '../css/style.css';
 import { StudentRender } from './StudentRender';
