@@ -1,6 +1,5 @@
 import React from 'react';
 import '../css/style.css';
-import StudentContex from '../context/StudentContex';
 
 /**
  * @param {Array} grades - A array of test scores from the student.
