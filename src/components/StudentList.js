@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { Student } from './Student';
 import StudentContex from '../context/StudentContex';
 import SearchContex from '../context/SearchContext';
